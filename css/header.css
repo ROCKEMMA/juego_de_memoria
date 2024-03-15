@@ -1,0 +1,45 @@
+#header {
+    grid-column: 1/9;
+
+    padding: 0px 5rem;
+
+    display: grid;
+    grid-template-columns: 13rem 1fr 30rem 15rem;
+    align-items: center;
+    gap: 2rem;
+
+    font-size: 2.5rem;
+}
+.nivel {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.nivel .num-nivel {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: #15866e;
+    color: white;
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vidas {
+    display: flex;
+    align-items: center;
+    justify-self: right;
+    gap: 1rem;
+    padding-top: 0.5rem;
+    font-size: 5rem;
+}
+.tiempo {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.tiempo .ico_time {
+    padding-top: 0.2em;
+}

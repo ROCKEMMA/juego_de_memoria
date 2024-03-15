@@ -1,0 +1,10 @@
+.section_aciertos {
+    grid-column: 2/4;
+    grid-row: 3/8;
+    font-size: 3rem;
+}
+.section_aciertos .lista {
+    margin-top: 2rem;
+    padding-left: 5rem;
+    font-size: 2.3;
+}

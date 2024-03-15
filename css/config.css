@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: monospace;
+}
+
+#root {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: 6rem 10rem repeat(6,10rem);
+}
