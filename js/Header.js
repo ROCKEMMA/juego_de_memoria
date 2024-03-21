@@ -13,6 +13,6 @@ header.innerHTML = `
         <span class="material-symbols-outlined ico_time">
             timer
         </span> 
-        <span>00:00</span>
+        <span class="cronometro">00:00</span>
     </div>
 `;
