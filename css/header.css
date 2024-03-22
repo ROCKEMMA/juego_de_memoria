@@ -1,5 +1,6 @@
 #header {
     grid-column: 1/9;
+    grid-row: 1/2;
 
     padding: 0px 5rem;
 

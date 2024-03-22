@@ -5,63 +5,70 @@ import { vidas } from "./Actualizar_vidas.js";
 
 import { iniciar_cronometro } from "./Cargar_cronometro.js";
 
-let todas_las_cartad = document.querySelectorAll(".carta_trasera");
+function Descubrir_carta(){
+    let todas_las_cartad = document.querySelectorAll(".carta_trasera");
 
-let contador_de_cartas = 0;
-let estado_del_cronometro = 0;
+    let contador_de_cartas = 0;
+    let estado_del_cronometro = 0;
 
-todas_las_cartad.forEach((cada_div) => {
-    cada_div.addEventListener("click", () => {
+    todas_las_cartad.forEach((cada_div) => {
+        cada_div.addEventListener("click", () => {
 
-        estado_del_cronometro++;
-        if(estado_del_cronometro==1){
-            iniciar_cronometro(0,60);
-        }
+            estado_del_cronometro++;
+            if (estado_del_cronometro == 1) {
+                iniciar_cronometro(0,5);
+            }
 
-        /* CANTIDAD DE CARTAS DESCUBIRTAS */
-        let cartas_descubiertas = document.querySelectorAll(".activar");
-        if (cartas_descubiertas.length < 2){
-            cada_div.classList.add("activar");
-            cartas_descubiertas = document.querySelectorAll(".activar");
+            /* CANTIDAD DE CARTAS DESCUBIRTAS */
+            let cartas_descubiertas = document.querySelectorAll(".activar");
+            if (cartas_descubiertas.length < 2) {
+                cada_div.classList.add("activar");
+                cartas_descubiertas = document.querySelectorAll(".activar");
 
-            if (cartas_descubiertas.length == 2){
+                if (cartas_descubiertas.length == 2) {
 
-                let carta_1 = cartas_descubiertas[0].textContent;
-                let carta_2 = cartas_descubiertas[1].textContent;
+                    let carta_1 = cartas_descubiertas[0].textContent;
+                    let carta_2 = cartas_descubiertas[1].textContent;
 
-                if (carta_1 == carta_2) {
+                    if (carta_1 == carta_2) {
+                        Cargar_acierto(carta_1); //🥱 Muy fácil
 
-                    contador_de_cartas++;
+                        contador_de_cartas++;
 
-                    if(contador_de_cartas==todas_las_cartad.length/2){
-                        Cargar_puntos(vidas.length);
+                        if (contador_de_cartas == todas_las_cartad.length / 2) {
+                            Cargar_puntos(vidas.length);
+                        }
+
+                        setTimeout(() => {
+                            cartas_descubiertas.forEach((carta) => {
+                                carta.innerHTML = " "
+                                carta.classList.remove("activar");
+                                carta.classList.add("ocultar");
+                            })
+                        }, 1000);
+
+                    } else {
+
+                        Actualizar_vidas(false);
+
+                        console.log("Falso"); setTimeout(() => {
+                            cartas_descubiertas.forEach((cada_carta_descubierta) => {
+                                cada_carta_descubierta.classList.remove("activar");
+                            })
+                        }, 1000);
                     }
 
-                    setTimeout(()=>{
-                        cartas_descubiertas.forEach((carta) => {
-                            carta.innerHTML = " "
-                            carta.classList.remove("activar");
-                            carta.classList.add("ocultar");
-                        })
-                        Cargar_acierto(carta_1); //🥱 Muy fácil
-                    },1000);
-
-                } else {
-
-                    Actualizar_vidas(false);
-
-                    console.log("Falso");                    setTimeout(() => {
-                        cartas_descubiertas.forEach((cada_carta_descubierta) => {
-                            cada_carta_descubierta.classList.remove("activar");
-                        })
-                    }, 1000);
                 }
-
             }
-        }
+        });
     });
-});
 
-if (estado_del_cronometro){
-    console.log("Activa");
+    if (estado_del_cronometro) {
+        console.log("Activa");
+    }
+
 }
+
+Descubrir_carta();
+
+export { Descubrir_carta };

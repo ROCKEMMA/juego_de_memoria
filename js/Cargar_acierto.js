@@ -8,7 +8,8 @@ section_aciertos.innerHTML= `
 `;
 
 function Cargar_acierto(carta){
-    lista_aciertos.push(carta);    let lista = document.querySelector(".lista"); 
+    lista_aciertos.push(carta);
+    let lista = document.querySelector(".lista"); 
     lista.innerHTML="";
 
     lista_aciertos.forEach((cada_acierto)=>{

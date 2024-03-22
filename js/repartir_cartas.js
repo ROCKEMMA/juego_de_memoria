@@ -24,6 +24,8 @@ let nivel = construir_nivel(0);
 function repartir_cartas(nivel){
 
     let tablero = document.querySelector(".tablero");
+    tablero.innerHTML = "";
+
     nivel.forEach((cada_carta)=> {
         let carta = document.createElement("div");
         carta.classList.add("carta_trasera")
@@ -33,3 +35,6 @@ function repartir_cartas(nivel){
 
 }
 repartir_cartas(nivel);
+
+export { repartir_cartas }
+export {nivel}
